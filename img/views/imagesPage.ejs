@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Image Uploading</title>
+</head>
+
+<body>
+	<h1>To Upload Image on mongoDB</h1>
+	<hr>
+	<div>
+		<form action="/" method="POST" enctype="multipart/form-data">
+			<div>
+				<label for="name">name :</label>
+				<input type="text" id="name" name="name" >
+			</div>
+			<div>
+				<label for="email">email :</label>
+				<input type="text" id="email" name="email">
+			</div>
+			<div>
+				<label for="password">password: </label>
+				<input type="text" id="password" name="password" >
+			</div>
+			<div>
+				<label for="repassword">repassword :</label>
+				<input type="text" id="repassword" name="repassword">
+			</div>
+			<div>
+				<label for="likes">likes :</label>
+				<input type="text" id="likes" name="likes" >
+			</div>
+			<div>
+				<label for="comments">comments :</label>
+				<input type="text" id="comments" name="comments">
+			</div>
+			<div>
+				<label for="image">Upload Image :</label>
+				<input type="file" id="image" name="image" >
+			</div>
+			<div>
+				<button type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
+
+	<hr>
+
+	<h1>Uploaded Images</h1>
+	<div>
+		<% items.forEach(function(image) { %>
+		<div>
+			<div>
+				<img src="data:image/<%=image.img.contentType%>;base64,
+                         <%=image.img.data.toString('base64')%>">
+				<!-- <div>
+					<h5><%= image.name %></h5>
+					
+
+
+<p><%= image.desc %></p>
+
+
+
+				</div> -->
+			</div>
+		</div>
+		<% }) %>
+	</div>
+</body>
+
+</html>
